@@ -10,9 +10,9 @@ Kauã Alves → pontuacao.c | Cronômetro, cálculo de pontos, highscore, leitur
 
 Thiago Fontan → automatico.c | Algoritmo recursivo de resolução automática + sistema de dicas |
 
-Caua souza → main.c + menu.c | Menu, telas de início/fim, loop principal do jogo |
+Caua Souza → main.c + menu.c | Menu, telas de início/fim, loop principal do jogo |
 
-Breno cruz → movimentos.c | Validação de jogadas, contador, histórico de movimentos da partida |
+Breno Cruz → movimentos.c | Validação de jogadas, contador, histórico de movimentos da partida |
 
 Murilo Lima → torres.c | Struct das torres, inicialização, push/pop de discos |
 
