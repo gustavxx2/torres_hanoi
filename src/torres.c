@@ -2,20 +2,18 @@
 #include <stdio.h>
 #include <string.h>
 
-void inicializarTorre(Torre torres[], int numDiscos)
-{
+void inicializarTorre(Torre torres[], int numDiscos){
     Torre nomes[MAX_TORRES] = {"A", "B", "C"};
-    // inicializar as torres com os nomes e topo -1
+    //inicializar as torres com os nomes e topo -1
+    
 
-    for (int i = 0; i < MAX_TORRES; i++)
-    {
+    for(int i = 0; i < MAX_TORRES; i++){
         torres[i].topo = -1;
-        strcpy(torres[i].nome, nomes[i].nome);
+        strcpy(torres[i].nome, nomes[i]);
     }
 
-    // colcar os discos na torre A do maior pro menor
-    for (int i = numDiscos; i > 0; i--)
-    {
+    //colcar os discos na torre A do maior pro menor
+    for(int i = numDiscos; i > 0; i--){
         push(&torres[0], i);
     }
 }
