@@ -7,6 +7,7 @@
 #include "../include/torres.h"
 #include "../include/movimentos.h"
 #include "../include/automatico.h"
+#include "../include/pontuacao.h"
 
 // Função principal do programa
 int main()
@@ -21,6 +22,10 @@ int main()
     int opcao;
     int numDiscos;
     int totalMovimentos = 0;
+    
+    // Variáveis da sua parte (Pontuação e Tempo)
+    int tempo_gasto;
+    int pontos;
 
     // Exibe a tela inicial
     telaInicial();
@@ -55,9 +60,31 @@ int main()
 
                 // Mostra as torres na tela
                 exibir_torre(torres, numDiscos);
+                
+                // Zera a contagem de movimentos para a nova partida
+                totalMovimentos = 0;
+
+               
+                // Começa a contar o tempo antes de liberar o jogador
+                iniciar_cronometro();
 
                 // Parte do jogo manual ainda será integrada
                 printf("\nModo manual ainda sera integrado.\n");
+
+                // Quando o loop do jogo manual for criado, 
+                // as linhas abaixo devem rodar APENAS QUANDO O JOGADOR VENCER!
+                
+                tempo_gasto = parar_cronometro();
+                pontos = calcular_pontuacao(numDiscos, totalMovimentos, tempo_gasto);
+
+                printf("\n--- RESULTADOS DA PARTIDA ---\n");
+                printf("Tempo de jogo: %d segundos\n", tempo_gasto);
+                printf("Movimentos: %d\n", totalMovimentos);
+                printf("Sua pontuacao final: %d\n", pontos);
+                
+                // Chama a sua função que verifica se bateu o recorde e salva no .txt
+                salvar_highscore(pontos);
+                
 
                 system("pause");
                 break;
@@ -81,6 +108,7 @@ int main()
                 inicializarTorre(torres, numDiscos);
 
                 // Resolve automaticamente utilizando recursão
+                totalMovimentos = 0; // Zera para garantir contagem limpa
                 resolverAutomatico(
                     torres,
                     numDiscos,
@@ -100,10 +128,15 @@ int main()
                 break;
             }
 
-            // Mostra o highscore (quando implementado)
+            // Mostra o highscore 
             case 3:
             {
-                printf("\nHighscore ainda sera integrado.\n");
+                //          ---> HIGHSCORE <---
+                int recorde = ler_highscore();
+                
+                printf("\n====================================\n");
+                printf("       HIGHSCORE ATUAL: %d PONTOS\n", recorde);
+                printf("====================================\n\n");
 
                 system("pause");
                 break;
