@@ -4,7 +4,7 @@
 
 char NOMES_TORRES[3] = {'A', 'B', 'C'}; // nomes das torres, usados nas dicas
 
-// resolve Torre de Hanói recursivamente; pode executar tudo ou só achar 1 movimento
+// resolve Torre de Hanói dependendo do que foi solicitado; pode executar tudo ou só achar 1 movimento
 static void gerarMovimentos(Torre torres[], int numDiscos, int origem, int destino, int auxiliar,
                             int *contador, int movimentoAlvo, int *origemAlvo, int *destinoAlvo,
                             int *encontrado, int executar)
