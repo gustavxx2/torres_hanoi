@@ -12,7 +12,7 @@ void inicializarTorre(Torre torres[], int numDiscos){
         strcpy(torres[i].nome, nomes[i].nome);
     }
 
-    //colcar os discos na torre A do maior pro menor
+    //colocar os discos na torre A do maior pro menor
     for(int i = numDiscos; i > 0; i--){
         push(&torres[0], i);
     }
